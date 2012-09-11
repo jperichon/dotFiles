@@ -1,0 +1,13 @@
+[user]
+	name = Jonathan Perichon
+	email = jonathan.perichon@gmail.com
+
+[credential]
+	helper = osxkeychain
+
+[core]
+    editor = vim
+    pager = less -+$LESS -iRSwq
+
+[color]
+    ui = auto
