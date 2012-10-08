@@ -34,8 +34,7 @@ Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
 Bundle 'shemerey/vim-peepopen'
 Bundle 'vim-scripts/YankRing.vim'
-
-Bundle 'JSON.vim'
+Bundle 'gregsexton/MatchTag'
 
 filetype on
 filetype plugin on
