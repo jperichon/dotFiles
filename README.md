@@ -1,5 +1,10 @@
 This is a collection of my precious dot files.
 
 For now, it includes:
-- my zsh config (I use the awesome oh-my-zsh framework https://github.com/robbyrussell/oh-my-zsh to add functions, auto-complete helpers and themes)
+- my Vim config. I use Vundle to manage my plugins easily!
+
+![My sexy Vim](http://imageshack.us/a/img441/5210/vimb.png)
+
+- my zsh config. I use the awesome oh-my-zsh framework to add functions, auto-complete helpers and themes
+
 - my lighttpd config, that runs ruby (using CGI) and php (using fastcgi)
