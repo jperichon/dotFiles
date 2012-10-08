@@ -27,7 +27,7 @@ Bundle 'spf13/PIV'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'msanders/snipmate.vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ervandew/supertab'
