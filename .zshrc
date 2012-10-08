@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="norm"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git gem brew osx ssh autojump extract vi-mode)
+plugins=(git svn gem brew osx ssh autojump extract vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 #custom aliases
@@ -30,8 +30,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.1
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 
 #load rvm
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# __rvm_project_rvmrc
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+__rvm_project_rvmrc
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
