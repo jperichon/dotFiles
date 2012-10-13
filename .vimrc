@@ -26,15 +26,17 @@ Bundle 'nono/jquery.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'shemerey/vim-peepopen'
+Bundle 'kien/ctrlp.vim'
 Bundle 'spf13/PIV'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/rubycomplete.vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/YankRing.vim'
@@ -56,7 +58,7 @@ set smartindent
 set cindent
 set autoindent
 set number " line numbers
-set autochdir " set the current directory automatically
+" set autochdir " set the current directory automatically
 
 set encoding=utf-8
 set scrolloff=5
@@ -114,12 +116,12 @@ nmap - <C-x>
 nmap _ <C-x>
 noremap H ^
 noremap L $
-nmap t o<ESC>k
-nmap T O<ESC>j
+" nmap t o<ESC>k
+" nmap T O<ESC>j
+" inoremap ii <Esc>
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap <silent> ss :split<CR>
 nnoremap <silent> vv :vsplit<CR>
-inoremap ii <Esc>
 vmap > >gv
 vmap < <gv
 " upper/lower word
@@ -128,6 +130,8 @@ nmap <leader>l mQviwu`Q
 " upper/lower first char of word
 nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
+nmap <F2> <ESC>:setl paste<CR>gi<C-R>+<ESC>:setl nopaste<CR>gi
+inoremap <F2> <ESC>:setl paste<CR>gi<C-R>+<ESC>:setl nopaste<CR>gi
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -135,3 +139,22 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+" autocmd Filetype html map <D-Enter> :silent ! open -a "Google Chrome" %<CR>
+" autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
+let g:ctrlp_map = '<leader>p'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+augroup myfiletypes
+    autocmd!
+    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+augroup END

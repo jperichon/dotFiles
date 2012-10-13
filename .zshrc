@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="norm"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git svn gem brew osx ssh autojump extract vi-mode)
+plugins=(git svn rails rails3 bundler gem brew osx ssh autojump extract vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 #custom aliases
