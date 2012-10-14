@@ -17,6 +17,7 @@ alias m='mvim'
 alias tomcat='catalina'
 alias youtube-dl-mp3='youtube-dl -t --extract-audio --audio-format=mp3'
 export PAGER="vimpager"
+export EDITOR="vim"
 setopt INTERACTIVE_COMMENTS
 
 
@@ -31,9 +32,4 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
-
-#load rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-__rvm_project_rvmrc
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(rbenv init -)"

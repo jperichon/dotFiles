@@ -7,12 +7,21 @@ set rtp+=~/.vim/bundle/vundle/\
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'leshill/vim-json'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nono/jquery.vim'
+Bundle 'vim-scripts/rubycomplete.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'spf13/PIV'
+Bundle 'tpope/vim-rails.git'
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'ervandew/supertab'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -20,25 +29,18 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 Bundle 'godlygeek/tabular'
 Bundle 'gregsexton/MatchTag'
-Bundle 'leshill/vim-json'
 Bundle 'mileszs/ack.vim'
-Bundle 'nono/jquery.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
-Bundle 'spf13/PIV'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/rubycomplete.vim'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/YankRing.vim'
 
 filetype on
@@ -48,18 +50,14 @@ filetype plugin indent on
 set bs=2 " backspacing over everything in insert mode
 set ai " Auto indenting
 set history=100 " keep 100 lines of history
-
 set expandtab " tabs are spaces
 set softtabstop=4 " how many spaces for one tab
 set tabstop=4
 set shiftwidth=4 " nb of tabs when auto indent
-
 set smartindent
 set cindent
 set autoindent
-set number " line numbers
-" set autochdir " set the current directory automatically
-
+set number
 set encoding=utf-8
 set scrolloff=5
 set showmode
@@ -68,24 +66,35 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-set cursorline
 set ttyfast
-set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set showmatch
-
 set viminfo='20,\"200 " keep a .viminfo file
 set hlsearch " highlight the last searched term
 set incsearch
-
 set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 set nofoldenable
+set nobackup
+set noswapfile
+set background=dark
+colorscheme solarized
 
+let mapleader = ","
 let g:yankring_history_dir='$HOME/.vim/'
+let g:DisableAutoPHPFolding = 1 " Disable PHP code folding
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:ctrlp_map = '<leader>o'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -94,15 +103,6 @@ autocmd BufReadPost *
 \ exe "normal g'\"" |
 \ endif |
 \ endif
-
-let g:DisableAutoPHPFolding = 1 " Disable PHP code folding
-
-set nobackup
-set noswapfile
-set background=dark
-colorscheme solarized
-set mouse+=a
-let mapleader = ","
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -116,43 +116,28 @@ nmap - <C-x>
 nmap _ <C-x>
 noremap H ^
 noremap L $
-" nmap t o<ESC>k
-" nmap T O<ESC>j
-" inoremap ii <Esc>
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap <silent> ss :split<CR>
 nnoremap <silent> vv :vsplit<CR>
 vmap > >gv
 vmap < <gv
-" upper/lower word
 nmap <leader>u mQviwU`Q
 nmap <leader>l mQviwu`Q
-" upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
-nmap <F2> <ESC>:setl paste<CR>gi<C-R>+<ESC>:setl nopaste<CR>gi
-inoremap <F2> <ESC>:setl paste<CR>gi<C-R>+<ESC>:setl nopaste<CR>gi
+map <Leader>a ggVG"
+noremap <leader>p "+p`]a
+noremap <F1> <Esc>
+inoremap jk <Esc>"
+nnoremap ; :
 
-" Enable omni completion.
+" nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
+" autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
+" autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-" autocmd Filetype html map <D-Enter> :silent ! open -a "Google Chrome" %<CR>
-" autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
-let g:ctrlp_map = '<leader>p'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 augroup myfiletypes
     autocmd!
