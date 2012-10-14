@@ -81,6 +81,10 @@ set nofoldenable
 set nobackup
 set noswapfile
 set background=dark
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000
+set undoreload=10000 
 colorscheme solarized
 
 let mapleader = ","
