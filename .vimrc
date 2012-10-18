@@ -8,6 +8,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'myusuf3/numbers.vim'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
@@ -80,11 +81,11 @@ set colorcolumn=85
 set nofoldenable
 set nobackup
 set noswapfile
-set background=dark
 set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000 
+set background=dark
 colorscheme solarized
 
 let mapleader = ","
