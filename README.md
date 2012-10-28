@@ -4,7 +4,6 @@ For now, it includes:
 - my Vim config. I use Vundle to manage my plugins easily!
 
 To install Vundle, run:
-  
      ```
      $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
      ```
