@@ -2,6 +2,7 @@ This is a collection of my precious dot files.
 
 For now, it includes:
 - my Vim config. I use Vundle to manage my plugins easily!
+
 To install Vundle, run:
   
      ```
