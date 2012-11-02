@@ -1,13 +1,28 @@
 [user]
-	name = Jonathan Perichon
-	email = jonathan.perichon@gmail.com
+    name = Jonathan Perichon
+    email = jonathan.perichon@gmail.com
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 
 [core]
     editor = vim
     pager = vimpager
+	autocrlf = input
+	safecrlf = true
 
 [color]
     ui = auto
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    co = checkout
+    ci = commit
+    st = status -s
+    hist = log --pretty=format:'[%h] %an %cr: %s'
+    summary = log --pretty=format:'[%h] %an %ar: %s' --stat
+    changelog = log --pretty=format:' * %s'

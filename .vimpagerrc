@@ -8,3 +8,12 @@ let mapleader = ","
 nmap <silent> ,/ :nohlsearch<CR>
 set background=dark
 colorscheme solarized
+filetype on
+
+let vimpager_disable_x11 = 1
+
+set laststatus=0
+set ruler
+set foldmethod=manual
+set foldlevel=99
+set nolist

@@ -8,7 +8,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'myusuf3/numbers.vim'
+" Bundle 'myusuf3/numbers.vim'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
@@ -58,7 +58,7 @@ set shiftwidth=4 " nb of tabs when auto indent
 set smartindent
 set cindent
 set autoindent
-set number
+set relativenumber
 set encoding=utf-8
 set scrolloff=5
 set showmode
@@ -131,8 +131,9 @@ nmap <leader>l mQviwu`Q
 map <Leader>a ggVG"
 noremap <leader>p "+p`]a
 noremap <F1> <Esc>
-inoremap jk <Esc>"
+inoremap ii <Esc>`^
 nnoremap ; :
+nmap <Leader>v :source $MYVIMRC<CR>
 
 " nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 " autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
