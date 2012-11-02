@@ -29,6 +29,7 @@ export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 setopt INTERACTIVE_COMMENTS
 
+# makes less more colorful. we use vimpager anyway ...
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
 export LESS_TERMCAP_me=$'\E[0m'           # end mode

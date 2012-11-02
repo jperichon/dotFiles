@@ -8,7 +8,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Bundle 'myusuf3/numbers.vim'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
