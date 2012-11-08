@@ -8,7 +8,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
@@ -18,6 +17,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'spf13/PIV'
 Bundle 'tpope/vim-rails.git'
 
+Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
@@ -90,7 +90,9 @@ colorscheme solarized
 let mapleader = ","
 let g:yankring_history_dir='$HOME/.vim/'
 let g:DisableAutoPHPFolding = 1 " Disable PHP code folding
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" let g:SuperTabDefaultCompletionType = "context"
+
 let g:ctrlp_map = '<leader>o'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -143,6 +145,11 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 augroup myfiletypes
     autocmd!
