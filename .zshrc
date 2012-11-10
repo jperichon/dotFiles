@@ -12,6 +12,9 @@ alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
 # custom aliases
+alias svn='colorsvn'
+# alias ls='ls --color=auto'
+alias ls='ls++'
 alias clr='clear'
 alias cls='clear'
 alias windows='VBoxManage startvm "Windows 7"'
@@ -43,12 +46,13 @@ function mkcd {
   mkdir -p "$dir" && cd "$dir";
 }
 
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts
+export PATH=/usr/local/lib/cw:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts
 
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 eval "$(rbenv init -)"
+# eval "$( dircolors -b $HOME/.ls_colors)"
 
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
