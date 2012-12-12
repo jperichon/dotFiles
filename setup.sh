@@ -24,6 +24,18 @@ promptyn () {
 }
 
 function osx_tweaks() {
+    #disable spotlight icon
+    sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+    killall SystemUIServer
+
+    #dock in 2d
+    defaults write com.apple.dock no-glass -boolean YES
+    killall dock
+
+    #disable spell correction
+    defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool NO
+    #disable gatekeeper
+    sudo spctl --master-disable
     # prevent iTunes from launching with the media keys
     sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
 

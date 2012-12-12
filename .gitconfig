@@ -48,3 +48,5 @@
     hist = log --pretty=format:'[%h] %an %cr: %s'
     summary = log --pretty=format:'[%h] %an %ar: %s' --stat
     changelog = log --pretty=format:' * %s'
+[push]
+	default = simple
