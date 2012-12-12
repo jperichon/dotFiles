@@ -6,7 +6,3 @@ To run the installer:
      ```
 
 ![My sexy Vim](http://imageshack.us/a/img441/5210/vimb.png)
-
-- my zsh config. I use the awesome oh-my-zsh framework to add functions, auto-complete helpers and themes
-
-- my lighttpd config, that runs ruby (using CGI) and php (using fastcgi)

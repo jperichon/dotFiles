@@ -24,17 +24,21 @@ promptyn () {
 }
 
 function osx_tweaks() {
-    #disable spotlight icon
+    # key repeat
+    defaults write -g ApplePressAndHoldEnabled -bool false
+    # set the Library visible
+    chflags nohidden ~/Library
+    # disable spotlight icon
     sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
     killall SystemUIServer
 
-    #dock in 2d
+    # dock in 2d
     defaults write com.apple.dock no-glass -boolean YES
     killall dock
 
-    #disable spell correction
+    # disable spell correction
     defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool NO
-    #disable gatekeeper
+    # disable gatekeeper
     sudo spctl --master-disable
     # prevent iTunes from launching with the media keys
     sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
