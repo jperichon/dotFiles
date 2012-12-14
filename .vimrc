@@ -8,6 +8,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'tpope/vim-fugitive'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
@@ -135,6 +137,10 @@ noremap <F1> <Esc>
 inoremap ii <Esc>`^
 nnoremap ; :
 nmap <Leader>v :source $MYVIMRC<CR>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 " autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
