@@ -1,7 +1,7 @@
 #!/bin/bash
 
 gems="rails libv8 therubyracer"
-brews="git apple-gcc-42 android-sdk autojump bash boost cmake colordiff colormake 
+brews="git apple-gcc42 android-sdk autojump bash boost cmake colordiff colormake 
     colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
     htop-osx jetty jsonpp markdown mercurial maven node openssh php54 pow 
     python qt sqlite subversion tomcat valgrind vim vimpager macvim wget youtube-dl 
