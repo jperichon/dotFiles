@@ -125,7 +125,7 @@ function setup_ruby() {
     gem install $gems
 }
 
-require "xcode-select"
+require "gcc"
 if promptyn "Would you like to use my dot files?"; then
     using_dot_files=1
 fi
