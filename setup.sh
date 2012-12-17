@@ -77,6 +77,7 @@ function setup_homebrew() {
     ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     brew update
     brew tap homebrew/dupes
+    brew tap josegonzalez/homebrew-php
     brew install --force $brews
 }
 
@@ -109,7 +110,7 @@ function dot_files() {
     echo "Please enter your name: $dotfiles_local_repo \c"
     read local_repo
     [ -n "$local_repo" ] && dotfiles_local_repo=$local_repo
-    git https://github.com/jperichon/dotFiles.git $dotfiles_local_repo
+    git clone https://github.com/jperichon/dotFiles.git $dotfiles_local_repo
     ln -s -F ~/$dotfiles_local_repo/.colorsvnrc ~/.colorsvnrc
     ln -s -F ~/$dotfiles_local_repo/.dircolors ~/.dircolors
     ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
