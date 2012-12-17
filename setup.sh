@@ -8,7 +8,6 @@ brews="git apple-gcc-42 android-sdk autojump bash boost cmake colordiff colormak
     zsh rbenv ruby-build v8"
 
 dotfiles_local_repo="~/Projects/dotFiles"
-using_dot_files=0
 
 promptyn () {
     while true; do
@@ -87,33 +86,34 @@ function setup_zsh() {
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     chsh -s /bin/zsh
 
-    if [[ using_dot_files -ne 1 ]]; then
-        ln -s -F $dotfiles_local_repo/.zshrc ~/.zshrc
-        ln -s -F $dotfiles_local_repo/.zshenv ~/.zshenv
-    fi
+    ln -s -F $dotfiles_local_repo/.zshrc ~/.zshrc
+    ln -s -F $dotfiles_local_repo/.zshenv ~/.zshenv
 }
 
 function setup_vim() {
-    if [[ using_dot_files -ne 1 ]]; then
-        require "vim"
-        require "git"
-        ln -s -F $dotfiles_local_repo/.vimrc ~/.vimrc
-        ln -s -F $dotfiles_local_repo/.vimpagerrc ~/.vimpagerrc
-        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-        vim -E -c BundleInstall -c q
-    fi
+    require "vim"
+    require "git"
+    ln -s -F $dotfiles_local_repo/.vimrc ~/.vimrc
+    ln -s -F $dotfiles_local_repo/.vimpagerrc ~/.vimpagerrc
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    vim -E -c BundleInstall -c q
 }
 
 function require() {
     command -v $1 >/dev/null 2>&1 || { echo "$1 is required. Aborting." >&2; exit 1; }
 }
 
-function get_dot_files() {
+function dot_files() {
     require "git"
     echo "Please enter your name: $dotfiles_local_repo \c"
     read local_repo
     [ -n "$local_repo" ] && dotfiles_local_repo=$local_repo
     git https://github.com/jperichon/dotFiles.git $dotfiles_local_repo
+    ln -s -F ~/$dotfiles_local_repo/.colorsvnrc ~/.colorsvnrc
+    ln -s -F ~/$dotfiles_local_repo/.dircolors ~/.dircolors
+    ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
+    ln -s -F ~/$dotfiles_local_repo/.lighttpd.conf ~/.lighttpd.conf
+    ln -s -F ~/$dotfiles_local_repo/.ls++.conf ~/.ls++.conf
 }
 
 function setup_ruby() {
@@ -125,31 +125,10 @@ function setup_ruby() {
     gem install $gems
 }
 
+echo "Command lines tools must be installed."
 require "gcc"
-if promptyn "Would you like to use my dot files?"; then
-    using_dot_files=1
-fi
-
-if promptyn "Would you like to setup homebrew"; then
-    setup_homebrew
-fi
-if [[ using_dot_files -ne 1 ]]; then
-    require "git"
-    get_dot_files
-    ln -s -F ~/$dotfiles_local_repo/.colorsvnrc ~/.colorsvnrc
-    ln -s -F ~/$dotfiles_local_repo/.dircolors ~/.dircolors
-    ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
-    ln -s -F ~/$dotfiles_local_repo/.lighttpd.conf ~/.lighttpd.conf
-    ln -s -F ~/$dotfiles_local_repo/.ls++.conf ~/.ls++.conf
-fi
-if promptyn "Would you like to setup zsh?"; then
-    setup_zsh
-fi
-
-if promptyn "Would you like to setup vim?"; then
-    setup_vim
-fi
-
-if promptyn "Would you like to apply OSX tweaks?"; then
-    osx_tweaks
-fi
+setup_homebrew
+dot_files
+setup_zsh
+setup_vim
+osx_tweaks
