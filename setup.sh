@@ -76,6 +76,7 @@ function setup_homebrew() {
 
     ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     brew update
+    brew tap homebrew/dupes
     brew install --force $brews
 }
 
