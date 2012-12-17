@@ -116,8 +116,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-cmap W w
-cmap Q q
 nmap + <C-a>
 nmap = <C-a>
 nmap - <C-x>

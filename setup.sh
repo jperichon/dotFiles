@@ -1,14 +1,12 @@
 #!/bin/bash
 
-gems=(
-    rails
-)
-brews=(
-    git android-sdk autojump bash boost cmake colordiff colormake colorsvn colortail 
-    ctags curl doxygen erlang ffmpeg gettext hadoop highlight htop-osx jetty jsonpp 
-    macvim markdown mercurial maven node openssh php54 pow python qt rbenv sqlite 
-    subversion tomcat valgrind vim vimpager wget youtube-dl zsh
-)
+gems="rails libv8 therubyracer"
+brews="apple-gcc-42 git android-sdk autojump bash boost cmake colordiff colormake 
+    colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
+    htop-osx jetty jsonpp macvim markdown mercurial maven node openssh php54 pow 
+    python qt sqlite subversion tomcat valgrind vim vimpager wget youtube-dl 
+    zsh rbenv ruby-build v8"
+
 dotfiles_local_repo="~/Projects/dotFiles"
 using_dot_files=0
 
@@ -24,6 +22,8 @@ promptyn () {
 }
 
 function osx_tweaks() {
+    # speed up dialog boxes
+    defaults write NSGlobalDomain NSWindowResizeTime 0.01
     # key repeat
     defaults write -g ApplePressAndHoldEnabled -bool false
     # set the Library visible
@@ -118,11 +118,21 @@ function get_dot_files() {
 
 function setup_ruby() {
     require "ruby"
+    require "rbenv"
+    rbenv install 1.9.3-p327
+    rbenv rehash
+    rbenv global 1.9.3-p327
+    gem install $gems
 }
 
 if promptyn "Would you like to use my dot files?"; then
     get_dot_files
     using_dot_files = 1
+    ln -s -F ~/$dotfiles_local_repo/.colorsvnrc ~/.colorsvnrc
+    ln -s -F ~/$dotfiles_local_repo/.dircolors ~/.dircolors
+    ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
+    ln -s -F ~/$dotfiles_local_repo/.lighttpd.conf ~/.lighttpd.conf
+    ln -s -F ~/$dotfiles_local_repo/.ls++.conf ~/.ls++.conf
 fi
 
 if promptyn "Would you like to setup homebrew"; then
