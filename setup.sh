@@ -132,14 +132,6 @@ fi
 if promptyn "Would you like to setup homebrew"; then
     setup_homebrew
 fi
-
-if promptyn "Would you like to setup zsh?"; then
-    setup_zsh
-fi
-
-if promptyn "Would you like to setup vim?"; then
-    setup_vim
-fi
 if [[ using_dot_files -ne 1 ]]; then
     require "git"
     get_dot_files
@@ -148,6 +140,13 @@ if [[ using_dot_files -ne 1 ]]; then
     ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
     ln -s -F ~/$dotfiles_local_repo/.lighttpd.conf ~/.lighttpd.conf
     ln -s -F ~/$dotfiles_local_repo/.ls++.conf ~/.ls++.conf
+fi
+if promptyn "Would you like to setup zsh?"; then
+    setup_zsh
+fi
+
+if promptyn "Would you like to setup vim?"; then
+    setup_vim
 fi
 
 if promptyn "Would you like to apply OSX tweaks?"; then
