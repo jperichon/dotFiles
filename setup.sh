@@ -126,7 +126,7 @@ function setup_ruby() {
 }
 
 if promptyn "Would you like to use my dot files?"; then
-    using_dot_files = 1
+    using_dot_files=1
 fi
 
 if promptyn "Would you like to setup homebrew"; then
