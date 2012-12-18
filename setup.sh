@@ -139,5 +139,6 @@ require "xcodebuild"
 setup_homebrew
 dot_files
 setup_zsh
+setup_ruby
 setup_vim
 osx_tweaks
