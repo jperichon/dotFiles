@@ -134,7 +134,6 @@ function setup_ruby() {
     npm install pow
 }
 
-echo "Command lines tools must be installed."
 require "xcodebuild"
 setup_homebrew
 dot_files
