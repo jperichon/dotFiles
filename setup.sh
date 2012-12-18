@@ -135,6 +135,7 @@ function setup_ruby() {
 }
 
 require "xcodebuild"
+require "gcc"
 setup_homebrew
 dot_files
 setup_zsh

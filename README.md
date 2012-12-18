@@ -1,8 +1,14 @@
-This is a collection of my precious dot files.
+This is a collection of config and scripts that I use on OSX 10.8.2.
 
-To run the installer:
-     ```
-     $ sh <(curl -s https://raw.github.com/jperichon/dotFiles/master/setup.sh)
-     ```
+It includes:
+- my VIM setup (plugins are managed with vundle)
+- ZSH + oh-my-sh
+- an installation script that symlinks the config files and installs various
+development tools, including webservers, libraries and gems.
 
-![My sexy Vim](http://imageshack.us/a/img441/5210/vimb.png)
+To run this installation script, paste this into your terminal:
+     ```
+     sh <(curl -s https://raw.github.com/jperichon/dotFiles/master/setup.sh)
+     ```
+Note: XCode and Command lines tools must be installed before running this
+script.
