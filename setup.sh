@@ -3,9 +3,9 @@
 gems="rails libv8 therubyracer"
 brews="git apple-gcc42 android-sdk autojump bash boost cmake colordiff colormake 
     colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
-    htop-osx jetty jsonpp markdown mercurial maven node openssh php54 pow 
-    python qt sqlite subversion tomcat valgrind vim vimpager macvim wget youtube-dl 
-    zsh rbenv ruby-build v8"
+    htop-osx jetty jsonpp markdown mercurial maven node openssh php54 python qt 
+    sqlite subversion tomcat valgrind vim vimpager macvim wget youtube-dl zsh rbenv 
+    ruby-build v8"
 
 dotfiles_local_repo="~/Projects/dotFiles"
 
@@ -121,6 +121,10 @@ function dot_files() {
 function setup_ruby() {
     require "ruby"
     require "rbenv"
+    require "curl"
+    require "npm"
+    curl http://npmjs.org/install.sh | sh
+    npm install pow
     rbenv install 1.9.3-p327
     rbenv rehash
     rbenv global 1.9.3-p327
