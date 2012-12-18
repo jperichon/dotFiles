@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gems="rails libv8 therubyracer"
+gems="rails libv8 therubyracer powder"
 brews="android-sdk autojump bash boost cmake colordiff colormake 
     colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
     htop-osx jetty jsonpp markdown mercurial maven node openssh php54 python qt 
