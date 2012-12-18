@@ -6,6 +6,7 @@ It includes:
 - an installation script that symlinks the config files and installs various
 development tools, including webservers, libraries and gems. I use Homebrew as
 package manager.
+- some tweaks for OSX
 
 To run this installation script, paste this into your terminal:
      ```
