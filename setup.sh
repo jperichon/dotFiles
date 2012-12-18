@@ -1,13 +1,11 @@
 #!/bin/bash
 
 gems="rails libv8 therubyracer"
-brews="git apple-gcc42 android-sdk autojump bash boost cmake colordiff colormake 
+brews="android-sdk autojump bash boost cmake colordiff colormake 
     colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
     htop-osx jetty jsonpp markdown mercurial maven node openssh php54 python qt 
     sqlite subversion tomcat valgrind vim vimpager macvim wget youtube-dl zsh rbenv 
     ruby-build v8"
-
-dotfiles_local_repo="~/Projects/dotFiles"
 
 promptyn () {
     while true; do
@@ -21,6 +19,7 @@ promptyn () {
 }
 
 function osx_tweaks() {
+    echo -e "\033[38;5;148mApplying OSX tweaks\033[39m"
     # speed up dialog boxes
     defaults write NSGlobalDomain NSWindowResizeTime 0.01
     # key repeat
@@ -71,6 +70,7 @@ EOF
 }
 
 function setup_homebrew() {
+    echo -e "\033[38;5;148mSetting up Homebrew\033[39m"
     require "curl"
     require "ruby"
 
@@ -78,27 +78,30 @@ function setup_homebrew() {
     brew update
     brew tap homebrew/dupes
     brew tap josegonzalez/homebrew-php
-    brew install --force $brews
+    brew install git apple-gcc42
+    exec $SHELL
+    brew install $brews
 }
 
 function setup_zsh() {
+    echo -e "\033[38;5;148mSetting up ZSH\033[39m"
     require "brew"
     require "curl"
 
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     chsh -s /bin/zsh
 
-    ln -s -F $dotfiles_local_repo/.zshrc ~/.zshrc
-    ln -s -F $dotfiles_local_repo/.zshenv ~/.zshenv
+    ln -s -F ~/Projects/.zshrc ~/.zshrc
 }
 
 function setup_vim() {
+    echo -e "\033[38;5;148mSetting up VIM\033[39m"
     require "vim"
     require "git"
-    ln -s -F $dotfiles_local_repo/.vimrc ~/.vimrc
-    ln -s -F $dotfiles_local_repo/.vimpagerrc ~/.vimpagerrc
+    ln -s -F ~/Projects/.vimrc ~/.vimrc
+    ln -s -F ~/Projects/.vimpagerrc ~/.vimpagerrc
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim -E -c BundleInstall -c q
+    vim +BundleInstall! +BundleClean +qall
 }
 
 function require() {
@@ -106,33 +109,33 @@ function require() {
 }
 
 function dot_files() {
+    echo -e "\033[38;5;148mCopying dot files\033[39m"
     require "git"
-    echo "Please enter your name: $dotfiles_local_repo \c"
-    read local_repo
-    [ -n "$local_repo" ] && dotfiles_local_repo=$local_repo
-    git clone https://github.com/jperichon/dotFiles.git $dotfiles_local_repo
-    ln -s -F ~/$dotfiles_local_repo/.colorsvnrc ~/.colorsvnrc
-    ln -s -F ~/$dotfiles_local_repo/.dircolors ~/.dircolors
-    ln -s -F ~/$dotfiles_local_repo/.gemrc ~/.gemrc
-    ln -s -F ~/$dotfiles_local_repo/.lighttpd.conf ~/.lighttpd.conf
-    ln -s -F ~/$dotfiles_local_repo/.ls++.conf ~/.ls++.conf
+    git clone https://github.com/jperichon/dotFiles.git ~/Projects
+    ln -s -F ~/Projects/.colorsvnrc ~/.colorsvnrc
+    ln -s -F ~/Projects/.dircolors ~/.dircolors
+    ln -s -F ~/Projects/.gemrc ~/.gemrc
+    ln -s -F ~/Projects/.lighttpd.conf ~/.lighttpd.conf
+    ln -s -F ~/Projects/.ls++.conf ~/.ls++.conf
 }
 
 function setup_ruby() {
+    echo -e "\033[38;5;148mSetting up Ruby\033[39m"
     require "ruby"
     require "rbenv"
     require "curl"
     require "npm"
-    curl http://npmjs.org/install.sh | sh
-    npm install pow
     rbenv install 1.9.3-p327
     rbenv rehash
     rbenv global 1.9.3-p327
+    exec $SHELL
     gem install $gems
+    curl get.pow.cx | sh
+    npm install pow
 }
 
 echo "Command lines tools must be installed."
-require "gcc"
+require "xcodebuild"
 setup_homebrew
 dot_files
 setup_zsh

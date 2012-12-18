@@ -21,7 +21,7 @@ alias clr='clear'
 alias cls='clear'
 alias windows='VBoxManage startvm "Windows 7"'
 alias archlinux='VBoxManage startvm "Arch Linux"'
-alias lighttpd.start='lighttpd -f /Users/jperichon/.lighttpd.conf &'
+alias lighttpd.start='lighttpd -f $HOME/.lighttpd.conf &'
 alias lighttpd.stop='killall lighttpd'
 alias mkdir='mkdir -p'
 alias v='vim'
@@ -49,7 +49,8 @@ bindkey "^[[B" history-beginning-search-forward
 plugins=(git svn rails3 rake bundler gem brew osx ssh autojump extract forklift mvn)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
-export PATH=/Users/jperichon/.rbenv/shims:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:/Users/jperichon/Projects/scripts
+export PATH=$HOME/.rbenv/shims:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts
+export PATH=$HOME/.rbenv/bin:$PATH
 
 eval "$(rbenv init -)"
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
