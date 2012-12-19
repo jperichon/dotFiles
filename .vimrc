@@ -131,6 +131,7 @@ nmap <leader>u mQviwU`Q
 nmap <leader>l mQviwu`Q
 map <Leader>a ggVG"
 noremap <leader>p "+p`]a
+noremap <leader>c "*y
 noremap <F1> <Esc>
 inoremap ii <Esc>`^
 nnoremap ; :
