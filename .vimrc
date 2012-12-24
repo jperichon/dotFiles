@@ -8,6 +8,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-fugitive'
 Bundle 'leshill/vim-json'
