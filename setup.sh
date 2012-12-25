@@ -1,10 +1,10 @@
 #!/bin/bash
 
-gems="rails libv8 therubyracer powder"
+gems="rails libv8 therubyracer powder localtunnel"
 brews="android-sdk autojump bash boost cmake colordiff colormake 
     colorsvn colortail ctags curl doxygen erlang ffmpeg gettext hadoop highlight 
-    htop-osx jetty jsonpp markdown mercurial maven node openssh php54 python qt 
-    sqlite subversion tomcat valgrind vim vimpager macvim wget youtube-dl zsh rbenv 
+    htop-osx jetty jsonpp markdown mercurial maven node openssh php54 python sqlite 
+    subversion tomcat valgrind vim vimpager macvim wget youtube-dl zsh rbenv 
     ruby-build v8"
 
 promptyn () {
