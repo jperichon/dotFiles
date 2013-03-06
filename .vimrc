@@ -8,6 +8,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+"colorschemes
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'tomasr/molokai'
+Bundle '29decibel/codeschool-vim-theme'
+
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-fugitive'
@@ -15,7 +21,6 @@ Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
-" Bundle 'vim-scripts/rubycomplete.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'spf13/PIV'
 Bundle 'tpope/vim-rails.git'
@@ -24,7 +29,6 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -131,7 +135,7 @@ vmap < <gv
 nmap <leader>u mQviwU`Q
 nmap <leader>l mQviwu`Q
 map <Leader>a ggVG"
-noremap <leader>p "+p`]a
+noremap <Leader>p "+p`]a
 noremap <leader>c "*y
 noremap <F1> <Esc>
 inoremap ii <Esc>`^
@@ -163,3 +167,5 @@ augroup myfiletypes
 augroup END
 
 set completeopt=menu,menuone
+" au FocusLost * set number
+" au FocusGained * set relativenumber
