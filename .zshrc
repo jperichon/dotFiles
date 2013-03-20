@@ -16,7 +16,6 @@ alias make='colormake'
 alias tail='colortail'
 alias diff='colordiff'
 # alias ls='ls --color=auto'
-alias ls='ls++'
 alias clr='clear'
 alias cls='clear'
 alias windows='VBoxManage startvm "Windows 7"'
@@ -25,9 +24,8 @@ alias lighttpd.start='lighttpd -f $HOME/.lighttpd.conf &'
 alias lighttpd.stop='killall lighttpd'
 alias mkdir='mkdir -p'
 alias v='vim'
-alias m='mvim'
 alias tomcat='catalina'
-# alias mvn='mvn-color'
+alias mvn='mvn-color'
 alias youtube-dl-mp3='youtube-dl -t --extract-audio --audio-format=mp3'
 export PAGER="vimpager"
 export EDITOR="vim"
@@ -38,12 +36,14 @@ setopt INTERACTIVE_COMMENTS
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-plugins=(git svn rails3 rake bundler gem brew osx ssh autojump extract forklift mvn)
+plugins=(git svn rails3 rake bundler gem brew osx ssh autojump extract forklift mvn vi-mode)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 export PATH=$HOME/.rbenv/shims:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts
 
 eval "$(rbenv init -)"
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+function fname() { find . -iname "*$@*"; }
 
 source $ZSH/oh-my-zsh.sh

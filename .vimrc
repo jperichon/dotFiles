@@ -135,7 +135,7 @@ vmap < <gv
 nmap <leader>u mQviwU`Q
 nmap <leader>l mQviwu`Q
 map <Leader>a ggVG"
-noremap <Leader>p "+p`]a
+noremap <Leader>p "+p
 noremap <leader>c "*y
 noremap <F1> <Esc>
 inoremap ii <Esc>`^
@@ -145,6 +145,18 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+nmap <Leader>a& :Tabularize /&<CR>
+vmap <Leader>a& :Tabularize /&<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 " autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
@@ -167,5 +179,3 @@ augroup myfiletypes
 augroup END
 
 set completeopt=menu,menuone
-" au FocusLost * set number
-" au FocusGained * set relativenumber
