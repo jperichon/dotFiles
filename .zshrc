@@ -13,6 +13,7 @@ alias go='git checkout '
 alias svn='colorsvn'
 alias svnu='colorsvn update'
 alias make='colormake'
+alias top='htop'
 alias tail='colortail'
 alias diff='colordiff'
 # alias ls='ls --color=auto'
@@ -27,10 +28,12 @@ alias v='vim'
 alias tomcat='catalina'
 alias mvn='mvn-color'
 alias youtube-dl-mp3='youtube-dl -t --extract-audio --audio-format=mp3'
+
 export PAGER="vimpager"
 export EDITOR="vim"
 export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
+export TERM=xterm-256color
 setopt INTERACTIVE_COMMENTS
 
 bindkey "^[[A" history-beginning-search-backward

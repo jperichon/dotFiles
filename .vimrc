@@ -5,8 +5,10 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/\
 call vundle#rc()
+set t_Co=256
 
 Bundle 'gmarik/vundle'
+
 
 "colorschemes
 Bundle 'altercation/vim-colors-solarized'
@@ -24,7 +26,6 @@ Bundle 'nono/jquery.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'spf13/PIV'
 Bundle 'tpope/vim-rails.git'
-
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
@@ -49,6 +50,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/YankRing.vim'
+Bundle 'bonsaiben/bootstrap-snippets'
 
 filetype on
 filetype plugin on
@@ -93,6 +95,9 @@ set undolevels=1000
 set undoreload=10000 
 set background=dark
 colorscheme solarized
+
+let g:solarized_termcolors="16"
+
 
 let mapleader = ","
 let g:yankring_history_dir='$HOME/.vim/'
@@ -157,7 +162,7 @@ nmap <Leader>a, :Tabularize /,<CR>
 vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-
+map <Esc>[A <Down>
 " nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 " autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
 " autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
@@ -167,6 +172,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
