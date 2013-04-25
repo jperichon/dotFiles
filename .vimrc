@@ -9,24 +9,23 @@ set t_Co=256
 
 Bundle 'gmarik/vundle'
 
-
 "colorschemes
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'tomasr/molokai'
-Bundle '29decibel/codeschool-vim-theme'
+" Bundle 'tomasr/molokai'
+" Bundle 'jpo/vim-railscasts-theme'
+" Bundle '29decibel/codeschool-vim-theme'
 
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'chrisbra/NrrwRgn'
+" Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-fugitive'
 Bundle 'leshill/vim-json'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'spf13/PIV'
+" Bundle 'spf13/PIV'
 Bundle 'tpope/vim-rails.git'
-Bundle 'Rip-Rip/clang_complete'
+" Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
@@ -66,7 +65,8 @@ set shiftwidth=4 " nb of tabs when auto indent
 set smartindent
 set cindent
 set autoindent
-set relativenumber
+set number
+"set relativenumber
 set encoding=utf-8
 set scrolloff=5
 set showmode
@@ -79,7 +79,6 @@ set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
 set showmatch
-set viminfo='20,\"200 " keep a .viminfo file
 set hlsearch " highlight the last searched term
 set incsearch
 set wrap
@@ -102,8 +101,8 @@ let g:solarized_termcolors="16"
 let mapleader = ","
 let g:yankring_history_dir='$HOME/.vim/'
 let g:DisableAutoPHPFolding = 1 " Disable PHP code folding
-" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
 
 let g:ctrlp_map = '<leader>o'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -143,7 +142,7 @@ map <Leader>a ggVG"
 noremap <Leader>p "+p
 noremap <leader>c "*y
 noremap <F1> <Esc>
-inoremap ii <Esc>`^
+" inoremap ii <Esc>`^
 nnoremap ; :
 nmap <Leader>v :source $MYVIMRC<CR>
 map <C-j> <C-W>j
@@ -163,9 +162,9 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 map <Esc>[A <Down>
-" nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
-" autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
-" autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
+nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
+autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
+autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

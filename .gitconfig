@@ -45,9 +45,12 @@
 [alias]
     co = checkout
     ci = commit
-    st = status -s
+    st = status -sb
     hist = log --pretty=format:'[%h] %an %cr: %s'
     summary = log --pretty=format:'[%h] %an %ar: %s' --stat
     changelog = log --pretty=format:' * %s'
+    standup = log ––since yesterday ––author jperichon
+    purr = pull ––rebase
+    ready = rebase -i @{u}
 [push]
 	default = simple
