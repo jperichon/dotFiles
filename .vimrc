@@ -5,56 +5,55 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/\
 call vundle#rc()
-set t_Co=256
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 Bundle 'gmarik/vundle'
-
-"colorschemes
-Bundle 'altercation/vim-colors-solarized'
-" Bundle 'tomasr/molokai'
-" Bundle 'jpo/vim-railscasts-theme'
-" Bundle '29decibel/codeschool-vim-theme'
-
-Bundle 'kchmck/vim-coffee-script'
-" Bundle 'chrisbra/NrrwRgn'
-Bundle 'tpope/vim-fugitive'
-Bundle 'leshill/vim-json'
-Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-markdown'
 Bundle 'nono/jquery.vim'
-Bundle 'vim-ruby/vim-ruby'
-" Bundle 'spf13/PIV'
-Bundle 'tpope/vim-rails.git'
-" Bundle 'Rip-Rip/clang_complete'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
 Bundle 'godlygeek/tabular'
-Bundle 'gregsexton/MatchTag'
 Bundle 'mileszs/ack.vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'bonsaiben/bootstrap-snippets'
+Bundle 'vim-scripts/UltiSnips'
+Bundle 'christoomey/vim-tmux-navigator'
+" Bundle 'jpo/vim-railscasts-theme'
+" Bundle 'zeis/vim-kolor'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'gregsexton/MatchTag'
+" Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'leshill/vim-json'
+" Bundle 'ecomba/vim-ruby-refactoring'
+" Bundle 'tpope/vim-rails.git'
+" Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-endwise'
 
 filetype on
 filetype plugin on
 filetype plugin indent on
 
+set t_Co=256
+set splitbelow
+set splitright
+set scrolljump=20
+set nocursorcolumn
+set nocursorline
+set lazyredraw
+set re=1 "use the old regex engine to improve performance with rb files
+set ttyfast
+" set ttimeout
+" set ttimeoutlen=20
+" set ttyscroll=40
+" set scrolloff=40
+set notimeout
 set bs=2 " backspacing over everything in insert mode
 set ai " Auto indenting
 set history=100 " keep 100 lines of history
@@ -66,16 +65,14 @@ set smartindent
 set cindent
 set autoindent
 set number
-"set relativenumber
+" set relativenumber
 set encoding=utf-8
-set scrolloff=5
 set showmode
 set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
 set showmatch
@@ -84,25 +81,32 @@ set incsearch
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+set clipboard=unnamed
+" set colorcolumn=85
 set nofoldenable
 set nobackup
 set noswapfile
 set undodir=~/.vim/undo
 set undofile
-set undolevels=1000
-set undoreload=10000 
+" set undolevels=1000
+" set undoreload=10000 
 set background=dark
-colorscheme solarized
+colorscheme molokai
+" colorscheme desert
+" colorscheme railscasts
+" colorscheme kolor
 
-let g:solarized_termcolors="16"
-
+" let g:solarized_termcolors="16"
 
 let mapleader = ","
 let g:yankring_history_dir='$HOME/.vim/'
 let g:DisableAutoPHPFolding = 1 " Disable PHP code folding
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:ctrlp_map = '<leader>o'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -161,26 +165,27 @@ nmap <Leader>a, :Tabularize /,<CR>
 vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-map <Esc>[A <Down>
 nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
-autocmd Filetype html command :silent open -a "Google Chrome" %<CR>
-autocmd Filetype markdown map <D-Enter> :silent ! markdown % > /tmp/%<.html; open -a "Google Chrome" /tmp/%<.html<CR>
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
 augroup myfiletypes
     autocmd!
     autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
 set completeopt=menu,menuone
+
+set ttimeoutlen=10
+augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+augroup END

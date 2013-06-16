@@ -1,13 +1,10 @@
 syn on 
 set nocompatible 
 filetype off
-set rtp+=~/.vim/bundle/vundle/\
-call vundle#rc()
-Bundle 'altercation/vim-colors-solarized'
 let mapleader = ","
 nmap <silent> ,/ :nohlsearch<CR>
 set background=dark
-colorscheme solarized
+colorscheme desert
 filetype on
 
 let vimpager_disable_x11 = 1
