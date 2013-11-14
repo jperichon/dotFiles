@@ -26,7 +26,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Bundle 'jpo/vim-railscasts-theme'
 " Bundle 'zeis/vim-kolor'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'gregsexton/MatchTag'
+" Bundle 'gregsexton/MatchTag'
 " Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 " Bundle 'tpope/vim-fugitive'
@@ -43,7 +43,7 @@ filetype plugin indent on
 set t_Co=256
 set splitbelow
 set splitright
-set scrolljump=20
+" set scrolljump=20
 set nocursorcolumn
 set nocursorline
 set lazyredraw
@@ -189,3 +189,5 @@ augroup FastEscape
     au InsertEnter * set timeoutlen=0
     au InsertLeave * set timeoutlen=1000
 augroup END
+
+hi statusLine ctermfg=3 ctermbg=58
