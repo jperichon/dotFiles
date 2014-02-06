@@ -8,9 +8,6 @@ call vundle#rc()
 let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 Bundle 'gmarik/vundle'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
-Bundle 'nono/jquery.vim'
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
@@ -23,16 +20,28 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'tomasr/molokai'
 Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'tpope/vim-bundler'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'tpope/vim-fugitive'
+
+" languages support
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails.git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nono/jquery.vim'
+Bundle 'tpope/vim-markdown'
+
 " Bundle 'gregsexton/MatchTag'
-" Bundle 'altercation/vim-colors-solarized'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'leshill/vim-json'
-" Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'tpope/vim-rails.git'
+Bundle 'bling/vim-airline'
+" let g:airline_powerline_fonts = 1
 
 filetype on
 filetype plugin on
@@ -80,7 +89,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set clipboard=unnamed
-" set colorcolumn=85
+set colorcolumn=85
 set nofoldenable
 set nobackup
 set noswapfile
@@ -105,6 +114,12 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:airline_powerline_fonts = 1
+let g:rspec_command = "!bundle exec rspec {spec}"
+nnoremap <Leader>s :call RunNearestSpec()<CR>
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:ctrlp_map = '<leader>o'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -189,3 +204,6 @@ augroup FastEscape
 augroup END
 
 hi statusLine ctermfg=3 ctermbg=58
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+let g:airline_theme = 'wombat'

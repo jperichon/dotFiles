@@ -46,13 +46,11 @@ end
 
 task :homebrew do
   begin
-    sh 'ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"'
-    sh 'brew update'
 
     sh 'brew tap homebrew/dupes'
     sh 'brew tap josegonzalez/homebrew-php'
 
-    brews = ["git", "apple-gcc42", "android-sdk", "autojump", "bash", "boost", "cmake", "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", "erlang", "ffmpeg", "gettext", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", "mercurial", "maven", "node", "openssh", "php54", "python", "sqlite", "subversion", "tomcat", "valgrind", "vim", "vimpager", "macvim", "wget", "youtube-dl", "zsh", "rbenv", "ruby-build", "v8"]
+    brews = ["git", "apple-gcc42", "android-sdk", "autojump", "bash", "boost", "cmake", "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", "ffmpeg", "gettext", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", "mercurial", "maven", "node", "openssh", "php54", "python", "sqlite", "subversion", "tomcat", "valgrind", "vim", "vimpager", "macvim", "wget", "youtube-dl", "zsh", "rbenv", "ruby-build", "v8"]
 
     sh "brew install #{brews.join(' ')}"
   rescue => e

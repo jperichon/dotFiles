@@ -3,7 +3,7 @@
     email = jperichon@gmail.com
 
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 
 [core]
     editor = vim
@@ -53,4 +53,4 @@
     purr = pull ––rebase
     ready = rebase -i @{u}
 [push]
-	default = simple
+	default = matching

@@ -23,7 +23,6 @@ alias lighttpd.stop='killall lighttpd'
 alias mkdir='mkdir -p'
 alias v='vim'
 alias tomcat='catalina'
-alias mvn='mvn-color'
 alias youtube-dl-mp3='youtube-dl -t --extract-audio --audio-format=mp3'
 
 export PAGER="vimpager"
@@ -36,12 +35,11 @@ setopt INTERACTIVE_COMMENTS
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-plugins=(git capistrano colored-man cp svn rails3 rake bundler gem brew osx ssh autojump extract forklift mvn vi-mode tmuxinator)
+plugins=(git git-flow capistrano colored-man cp svn rails rake bundler gem brew osx ssh autojump extract forklift mvn vi-mode tmuxinator)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
+export PATH=/Users/jperichon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
 export PATH="/usr/local/share/python3:$PATH"
-export PATH="/usr/mogreet_distro/mysql-5.1.39-ndb-7.0.9/bin:$PATH"
 export CLICOLOR_FORCE=1
 
 # source /usr/local/share/chruby/chruby.sh
@@ -51,9 +49,10 @@ eval "$(rbenv init -)"
 
 function fname() { find . -iname "*$@*"; }
 
-source $HOME/.mogreet.sh
 source $ZSH/oh-my-zsh.sh
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# this makes things slow
+source $HOME/.deliv.sh
 
 PROMPT="%{$fg[yellow]%}%% %{$reset_color%}"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
