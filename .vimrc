@@ -28,6 +28,7 @@ Bundle 'jgdavey/tslime.vim'
 Bundle 'tpope/vim-bundler'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-fugitive'
+Bundle 'danchoi/ruby_bashrockets.vim'
 
 " languages support
 Bundle 'vim-ruby/vim-ruby'
