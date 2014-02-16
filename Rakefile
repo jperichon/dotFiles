@@ -49,10 +49,24 @@ task :homebrew do
 
     sh 'brew tap homebrew/dupes'
     sh 'brew tap josegonzalez/homebrew-php'
+    sh 'brew tap phinze/cask'
+    sh 'brew install brew-cask'
 
-    brews = ["git", "apple-gcc42", "android-sdk", "autojump", "bash", "boost", "cmake", "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", "ffmpeg", "gettext", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", "mercurial", "maven", "node", "openssh", "php54", "python", "sqlite", "subversion", "tomcat", "valgrind", "vim", "vimpager", "macvim", "wget", "youtube-dl", "zsh", "rbenv", "ruby-build", "v8"]
+    brews = [
+      "git", "apple-gcc42", "android-sdk", "autojump", "bash", "boost", "cmake", 
+      "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", 
+      "ffmpeg", "gettext", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", 
+      "mercurial", "maven", "node", "openssh", "php54", "python", "sqlite", "subversion", 
+      "tomcat", "valgrind", "vim", "vimpager", "macvim", "wget", "youtube-dl", "zsh", 
+      "rbenv", "ruby-build", "v8"
+    ]
+
+    cask_brews = [
+      "google-chrome", "adium", "adobe-reader"
+    ]
 
     sh "brew install #{brews.join(' ')}"
+    sh "brew cask install #{cask_brews.join(' ')}"
   rescue => e
     puts e.message
   end
