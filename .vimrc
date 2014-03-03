@@ -117,8 +117,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:airline_powerline_fonts = 1
-let g:rspec_command = "!bundle exec rspec {spec}"
-nnoremap <Leader>s :call RunNearestSpec()<CR>
+" let g:rspec_command = "!bundle exec rspec {spec}"
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" vim-rspec mappings
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -130,6 +135,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -180,6 +187,9 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
+
+" skips the register for single letters. this is awesome
+noremap x "_x
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
