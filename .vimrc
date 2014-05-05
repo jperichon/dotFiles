@@ -9,7 +9,8 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
-Bundle 'godlygeek/tabular'
+" Bundle 'godlygeek/tabular'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
@@ -63,7 +64,7 @@ set ttyfast
 " set scrolloff=40
 set notimeout
 set bs=2 " backspacing over everything in insert mode
-set ai " Auto indenting
+set ai
 set history=100 " keep 100 lines of history
 set expandtab " tabs are spaces
 set softtabstop=4 " how many spaces for one tab
@@ -73,7 +74,6 @@ set smartindent
 set cindent
 set autoindent
 set number
-" set relativenumber
 set encoding=utf-8
 set showmode
 set showcmd
@@ -90,7 +90,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set clipboard=unnamed
-set colorcolumn=85
+set colorcolumn=80
 set nofoldenable
 set nobackup
 set noswapfile
@@ -98,8 +98,12 @@ set undodir=~/.vim/undo
 set undofile
 " set undolevels=1000
 " set undoreload=10000 
+
+" theme
 set background=dark
 colorscheme molokai
+hi statusLine ctermfg=3 ctermbg=58
+let g:airline_theme = 'wombat'
 " colorscheme desert
 " colorscheme railscasts
 " colorscheme kolor
@@ -119,6 +123,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:airline_powerline_fonts = 1
 " let g:rspec_command = "!bundle exec rspec {spec}"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+map <Leader>t :call RunCurrentSpecFile()<CR>
 " vim-rspec mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
 " map <Leader>s :call RunNearestSpec()<CR>
@@ -128,14 +133,6 @@ let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:ctrlp_map = '<leader>o'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " When editing a file, always jump to the last cursor position
@@ -188,6 +185,11 @@ nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
+
 " skips the register for single letters. this is awesome
 noremap x "_x
 
@@ -198,7 +200,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup myfiletypes
     autocmd!
@@ -213,8 +215,3 @@ augroup FastEscape
     au InsertEnter * set timeoutlen=0
     au InsertLeave * set timeoutlen=1000
 augroup END
-
-hi statusLine ctermfg=3 ctermbg=58
-
-map <Leader>t :call RunCurrentSpecFile()<CR>
-let g:airline_theme = 'wombat'

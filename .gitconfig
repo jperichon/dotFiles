@@ -3,14 +3,14 @@
     email = jperichon@gmail.com
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 
 [core]
     editor = vim
     pager = vimpager
     autocrlf = input
     safecrlf = true
-	excludesfile = /Users/jperichon/.gitignore
+    excludesfile = /Users/jperichon/.gitignore
 
 [color]
     branch = auto
@@ -52,5 +52,9 @@
     standup = log ––since yesterday ––author jperichon
     purr = pull ––rebase
     ready = rebase -i @{u}
+    d = difftool
 [push]
-	default = matching
+    default = matching
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f

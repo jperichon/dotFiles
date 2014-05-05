@@ -3,8 +3,8 @@ require 'rake'
 task :vim do
   begin
     sh "mkdir -p ~/.vim"
-    sh "ln -s -F `pwd`.vimrc ~/.vimrc"
-    sh "ln -s -F `pwd`.vimpagerrc ~/.vimpagerrc"
+    sh "ln -s -F `pwd`/.vimrc ~/.vimrc"
+    sh "ln -s -F `pwd`/.vimpagerrc ~/.vimpagerrc"
 
     sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
     sh "vim +BundleInstall! +BundleClean +qall"
@@ -15,10 +15,10 @@ end
 
 task :zsh do
   begin
-    sh "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh"
-    sh "chsh -s /bin/zsh"
+    sh "curl -L http://install.ohmyz.sh | sh"
+    sh "chsh -s /usr/local/bin/zsh"
 
-    sh "ln -s -F `pwd`.zshrc ~/.zshrc"
+    sh "ln -s -F `pwd`/.zshrc ~/.zshrc"
   rescue => e
     puts e.message
   end
@@ -37,7 +37,7 @@ task :ruby do
     sh 'curl get.pow.cx | sh'
     sh 'npm install pow'
 
-    gems = [ 'rail', 'libv8', 'therubyracer', 'powder', 'localtunnel' ]
+    gems = [ 'rails', 'libv8', 'therubyracer', 'powder', 'localtunnel' ]
     sh "gem install #{gems.join(' ')}"
   rescue => e
     puts e.message
@@ -49,20 +49,22 @@ task :homebrew do
 
     sh 'brew tap homebrew/dupes'
     sh 'brew tap josegonzalez/homebrew-php'
-    sh 'brew tap phinze/cask'
+    sh 'brew tap caskroom/cask'
     sh 'brew install brew-cask'
 
     brews = [
-      "git", "apple-gcc42", "android-sdk", "autojump", "bash", "boost", "cmake", 
+      "ag", "git", "apple-gcc43", "android-sdk", "autojump", "bash", "boost", "cmake", 
       "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", 
-      "ffmpeg", "gettext", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", 
-      "mercurial", "maven", "node", "openssh", "php54", "python", "sqlite", "subversion", 
-      "tomcat", "valgrind", "vim", "vimpager", "macvim", "wget", "youtube-dl", "zsh", 
-      "rbenv", "ruby-build", "v8"
+      "ffmpeg", "gettext", "heroku-toolbelt", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", 
+      "mercurial", "maven", "mongodb", "node", "openssh", "php54", "python", "sqlite", "subversion", 
+      "reattach-to-user-namespace", "tomcat", "tmux", "valgrind", "vim", "vimpager", 
+      "wget", "youtube-dl", "zsh", "redis", "rbenv", "ruby-build", "v8"
     ]
 
     cask_brews = [
-      "google-chrome", "adium", "adobe-reader"
+      "adobe-reader", "alfred", "appcleaner", "caffeine", "dropbox", "firefox", "flash-player",
+      "gitx", "google-chrome", "google-hangouts", "iterm2", "mplayerx", "textmate", "transmission",
+      "slate", "xquartz", "wireshark"
     ]
 
     sh "brew install #{brews.join(' ')}"
@@ -72,13 +74,15 @@ task :homebrew do
   end
 end
 
-task :misc do
+task :dotfiles do
   begin
-    sh "ln -s -F `pwd`.colorsvnrc ~/.colorsvnrc"
-    sh "ln -s -F `pwd`.dircolors ~/.dircolors"
-    sh "ln -s -F `pwd`.gemrc ~/.gemrc"
-    sh "ln -s -F `pwd`.lighttpd.conf ~/.lighttpd.conf"
-    sh "ln -s -F `pwd`.ls++.conf ~/.ls++.conf"
+    sh "ln -s -F `pwd`/.colorsvnrc ~/.colorsvnrc"
+    sh "ln -s -F `pwd`/.dircolors ~/.dircolors"
+    sh "ln -s -F `pwd`/.gemrc ~/.gemrc"
+    sh "ln -s -F `pwd`/.lighttpd.conf ~/.lighttpd.conf"
+    sh "ln -s -F `pwd`/.ls++.conf ~/.ls++.conf"
+    sh "ln -s -F `pwd`/.tmux.conf ~/.tmux.conf"
+    sh "ln -s -F `pwd`/.gitconfig ~/.gitconfig"
   rescue => e
     puts e.message
   end
@@ -112,4 +116,4 @@ task :osx do
   end
 end
 
-task :me => [:homebrew, :ruby, :zsh, :vim, :misc, :osx]
+task :me => [:homebrew, :ruby, :zsh, :vim, :dotfiles, :osx]

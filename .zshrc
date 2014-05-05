@@ -36,7 +36,8 @@ setopt INTERACTIVE_COMMENTS
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-plugins=(git git-flow capistrano colored-man cp svn rails rake bundler gem brew osx ssh autojump extract forklift mvn vi-mode tmuxinator)
+plugins=(git git-flow heroku rake-fast capistrano colored-man cp rails rake bundler 
+gem brew osx ssh autojump extract vi-mode tmuxinator)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 export PATH=$HOME/.rbenv/shims:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
@@ -50,7 +51,6 @@ eval "$(rbenv init -)"
 function fname() { find . -iname "*$@*"; }
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.deliv.sh
 
 PROMPT="%{$fg[yellow]%}%% %{$reset_color%}"
 
