@@ -7,6 +7,6 @@ It includes:
 development tools, including webservers, libraries and gems. I use Homebrew as
 package manager.
 - some tweaks for OSX
-- 
+
 Note: XCode and Command lines tools must be installed before running this
 script.
