@@ -7,11 +7,6 @@ It includes:
 development tools, including webservers, libraries and gems. I use Homebrew as
 package manager.
 - some tweaks for OSX
-
-To run this installation script, paste this into your terminal:
-     ```
-     sh <(curl -s https://raw.github.com/jperichon/dotFiles/master/setup.sh)
-     ```
-
+- 
 Note: XCode and Command lines tools must be installed before running this
 script.
