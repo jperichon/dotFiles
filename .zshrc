@@ -9,6 +9,7 @@ alias gd='git diff'
 alias go='git checkout '
 alias gti='git'
 # custom aliases
+alias pw='pwd'
 alias svn='colorsvn'
 alias svnu='colorsvn update'
 alias make='colormake'
@@ -36,23 +37,19 @@ setopt INTERACTIVE_COMMENTS
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-plugins=(git git-flow heroku rake-fast capistrano colored-man cp rails rake bundler 
-gem brew osx ssh autojump extract vi-mode tmuxinator)
+plugins=(git git-flow heroku rake-fast capistrano colored-man cp chruby rails
+rake bundler gem brew osx ssh autojump extract vi-mode tmuxinator)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
-export PATH=$HOME/.rbenv/shims:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
-# export PATH=/Users/jperichon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
 export PATH="/usr/local/share/python3:$PATH"
 export CLICOLOR_FORCE=1
 
-eval "$(rbenv init -)"
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 function fname() { find . -iname "*$@*"; }
-
 source $ZSH/oh-my-zsh.sh
 
-PROMPT="%{$fg[yellow]%}%% %{$reset_color%}"
-
-### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+chruby ruby-2.1.5
+PROMPT="%{$fg[yellow]%}%% %{$reset_color%}"

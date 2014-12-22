@@ -26,18 +26,13 @@ end
 
 task :ruby do
   begin
-    versions = ['1.9.3-p327']
-    versions.each do |version|
-      sh "rbenv install #{version}"
-      sh 'rbenv rehash'
-      sh "rbenv global #{version}"
-    end
+    sh 'brew install chruby'
+    sh 'brew install ruby-install'
+    sh 'ruby-install ruby 2.0'
 
     sh 'exec $SHELL'
-    sh 'curl get.pow.cx | sh'
-    sh 'npm install pow'
 
-    gems = [ 'rails', 'libv8', 'therubyracer', 'powder', 'localtunnel' ]
+    gems = [ 'bundler', 'rails', 'libv8', 'therubyracer', 'powder', 'localtunnel' ]
     sh "gem install #{gems.join(' ')}"
   rescue => e
     puts e.message
@@ -54,17 +49,19 @@ task :homebrew do
 
     brews = [
       "ag", "git", "apple-gcc43", "android-sdk", "autojump", "bash", "boost", "cmake", 
-      "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "doxygen", 
-      "ffmpeg", "gettext", "heroku-toolbelt", "highlight", "htop-osx", "jetty", "jsonpp", "markdown", 
-      "mercurial", "maven", "mongodb", "node", "openssh", "php54", "python", "sqlite", "subversion", 
-      "reattach-to-user-namespace", "tomcat", "tmux", "valgrind", "vim", "vimpager", 
-      "wget", "youtube-dl", "zsh", "redis", "rbenv", "ruby-build", "v8"
+      "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "dos2unix", 
+      "doxygen", "ffmpeg", "gettext", "heroku-toolbelt", "highlight", "htop-osx", 
+      "jetty", "jsonpp", "markdown", "mercurial", "maven", "mongodb", "node", 
+      "openssh", "php54", "python", "sqlite", "subversion", "reattach-to-user-namespace", 
+      "tomcat", "tmux", "valgrind", "vim", "vimpager", "wget", "youtube-dl", "zsh", 
+      "redis", "rbenv", "ruby-build", "v8"
     ]
 
     cask_brews = [
-      "adobe-reader", "alfred", "appcleaner", "caffeine", "dropbox", "firefox", "flash-player",
-      "gitx", "google-chrome", "google-hangouts", "iterm2", "mplayerx", "textmate", "transmission",
-      "slate", "xquartz", "wireshark"
+      "adobe-reader", "alfred", "anvil", "appcleaner", "caffeine", "dropbox", 
+      "flux", "firefox", "flash-player", "gitx", "google-chrome", "google-hangouts", 
+      "iterm2", "mplayerx", "textmate", "transmission", "slate", "silverlight",
+      "skype", "xquartz", "wireshark"
     ]
 
     sh "brew install #{brews.join(' ')}"

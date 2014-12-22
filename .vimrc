@@ -5,11 +5,9 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/\
 call vundle#rc()
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
-" Bundle 'godlygeek/tabular'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
@@ -41,7 +39,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
 Bundle 'tpope/vim-markdown'
 
-" Bundle 'gregsexton/MatchTag'
+Bundle 'gregsexton/MatchTag'
 Bundle 'bling/vim-airline'
 " let g:airline_powerline_fonts = 1
 
@@ -50,13 +48,14 @@ filetype plugin on
 filetype plugin indent on
 
 set t_Co=256
+set term=screen-256color
 set splitbelow
 set splitright
 " set scrolljump=20
 set nocursorcolumn
 set nocursorline
 set lazyredraw
-set re=1 "use the old regex engine to improve performance with rb files
+" set re=1 "use the old regex engine to improve performance with rb files
 set ttyfast
 " set ttimeout
 " set ttimeoutlen=20
@@ -64,7 +63,7 @@ set ttyfast
 " set scrolloff=40
 set notimeout
 set bs=2 " backspacing over everything in insert mode
-set ai
+" set ai
 set history=100 " keep 100 lines of history
 set expandtab " tabs are spaces
 set softtabstop=4 " how many spaces for one tab
@@ -97,11 +96,12 @@ set noswapfile
 set undodir=~/.vim/undo
 set undofile
 " set undolevels=1000
-" set undoreload=10000 
+" set undoreload=10000
 
 " theme
 set background=dark
 colorscheme molokai
+let g:rehash256 = 1
 hi statusLine ctermfg=3 ctermbg=58
 let g:airline_theme = 'wombat'
 " colorscheme desert
@@ -171,23 +171,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-nmap <Leader>a& :Tabularize /&<CR>
-vmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
-
-" Start interactive EasyAlign in visual mode
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign with a Vim movement
+vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
 " skips the register for single letters. this is awesome
@@ -195,16 +180,17 @@ noremap x "_x
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS ts=2 sts=2 sw=2
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces
 augroup myfiletypes
     autocmd!
-    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+    autocmd FileType ruby,eruby,yaml,css,html set ai sw=2 sts=2 et
 augroup END
 
 set completeopt=menu,menuone
