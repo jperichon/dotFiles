@@ -41,6 +41,7 @@ plugins=(git git-flow heroku rake-fast capistrano colored-man cp chruby rails
 rake bundler gem brew osx ssh autojump extract vi-mode tmuxinator)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
 export PATH="/usr/local/share/python3:$PATH"
 export CLICOLOR_FORCE=1
