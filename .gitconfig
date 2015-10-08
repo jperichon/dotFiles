@@ -53,8 +53,16 @@
     purr = pull ––rebase
     ready = rebase -i @{u}
     d = difftool
+    delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
 [push]
-    default = matching
+    default = simple
+
+[pull]
+	default = current
+
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
+
+[branch]
+    autosetupmerge = always
