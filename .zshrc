@@ -39,7 +39,7 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 plugins=(git git-flow heroku rake-fast capistrano colored-man cp chruby rails
-rake bundler gem brew osx ssh autojump extract vi-mode tmuxinator bower)
+rake bundler gem brew osx ssh autojump extract vi-mode tmuxinator bower history-substring-search)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 export JAVA_HOME=$(/usr/libexec/java_home)
