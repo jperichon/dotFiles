@@ -48,18 +48,18 @@ task :homebrew do
     sh 'brew install brew-cask'
 
     brews = [
-      "ag", "git", "apple-gcc43", "android-sdk", "autojump", "bash", "boost", "cmake", 
-      "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "dos2unix", 
-      "doxygen", "ffmpeg", "gettext", "heroku-toolbelt", "highlight", "htop-osx", 
-      "jetty", "jsonpp", "markdown", "mercurial", "maven", "mongodb", "node", 
-      "openssh", "php54", "python", "sqlite", "subversion", "reattach-to-user-namespace", 
-      "tomcat", "tmux", "valgrind", "vim", "vimpager", "wget", "youtube-dl", "zsh", 
-      "redis", "rbenv", "ruby-build", "v8"
+      "ag", "git", "apple-gcc43", "android-sdk", "autojump", "bash", "boost", "cmake",
+      "colordiff", "colormake", "colorsvn", "colortail", "ctags", "curl", "dos2unix",
+      "doxygen", "ffmpeg", "gettext", "heroku-toolbelt", "highlight", "htop-osx",
+      "jetty", "jsonpp", "markdown", "mercurial", "maven", "mongodb", "node",
+      "openssh", "php54", "python", "sqlite", "subversion", "reattach-to-user-namespace",
+      "tomcat", "tmux", "trash", "valgrind", "vim", "vimpager", "wget", "youtube-dl",
+      "zsh", "redis", "rbenv", "ruby-build", "v8"
     ]
 
     cask_brews = [
-      "adobe-reader", "alfred", "anvil", "appcleaner", "caffeine", "dropbox", 
-      "flux", "firefox", "flash-player", "gitx", "google-chrome", "google-hangouts", 
+      "adobe-reader", "alfred", "anvil", "appcleaner", "caffeine", "dropbox",
+      "flux", "firefox", "flash-player", "gitx", "google-chrome", "google-hangouts",
       "iterm2", "mplayerx", "textmate", "transmission", "slate", "silverlight",
       "skype", "xquartz", "wireshark"
     ]
