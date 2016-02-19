@@ -46,6 +46,7 @@ Bundle 'ngmy/vim-rubocop'
 
 Bundle 'gregsexton/MatchTag'
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 " let g:airline_powerline_fonts = 1
 
 filetype on
