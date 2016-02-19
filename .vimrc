@@ -31,6 +31,7 @@ Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-fugitive'
 Bundle 'danchoi/ruby_bashrockets.vim'
 Bundle 'wakatime/vim-wakatime'
+Bundle 'airblade/vim-gitgutter'
 
 " languages support
 Bundle 'vim-ruby/vim-ruby'
@@ -54,7 +55,7 @@ filetype plugin on
 filetype plugin indent on
 
 set t_Co=256
-set term=screen-256color
+set term =screen-256color
 set splitbelow
 set splitright
 " set scrolljump=20
