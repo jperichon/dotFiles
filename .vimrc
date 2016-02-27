@@ -19,7 +19,8 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'vim-scripts/UltiSnips'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'tomasr/molokai'
 Bundle 'tpope/vim-endwise'
@@ -141,6 +142,10 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
