@@ -182,6 +182,11 @@ nnoremap <F2> :silent 1,$!xmllint --format --recover - 2>/dev/null<cr>
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
+xmap \\  <Plug>Commentary<CR>
+nmap \\  <CR><Plug>Commentary
+nmap \\\ <Plug>CommentaryLine<CR>
+nmap \\u <Plug>CommentaryUndo<CR>
+
 " skips the register for single letters. this is awesome
 noremap x "_x
 
