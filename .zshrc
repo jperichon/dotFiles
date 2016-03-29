@@ -9,6 +9,7 @@ alias gd='git diff'
 alias go='git checkout '
 alias gti='git'
 alias vmi='vim'
+alias ivm='vim'
 # custom aliases
 alias pw='pwd'
 alias svn='colorsvn'
@@ -27,6 +28,7 @@ alias mkdir='mkdir -p'
 alias v='vim'
 alias tomcat='catalina'
 alias youtube-dl-mp3='youtube-dl -t --extract-audio --audio-format=mp3'
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed'
 
 export PAGER="vimpager"
 export EDITOR="vim"
@@ -38,7 +40,7 @@ setopt INTERACTIVE_COMMENTS
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-plugins=(git git-flow heroku rake-fast capistrano colored-man cp chruby rails
+plugins=(git git-flow docker docker-compose heroku rake-fast capistrano colored-man cp chruby rails
 rake bundler gem brew osx ssh autojump extract vi-mode tmuxinator bower history-substring-search)
 
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
