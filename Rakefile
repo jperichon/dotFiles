@@ -23,12 +23,11 @@ BREWS = [
 ]
 
 CASK_BREWS = [
-  "adobe-photoshop-cc",
   "adobe-acrobat",
+  "adobe-photoshop-cc",
   "alfred",
   "appcleaner",
   "caffeine",
-  "divvy",
   "dropbox",
   "firefox",
   "flux",
@@ -43,6 +42,7 @@ CASK_BREWS = [
   "postico",
   "sequel-pro",
   "sonos",
+  "spectacle",
   "spotify",
   "textmate",
   "the-unarchiver",
