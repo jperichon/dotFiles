@@ -12,6 +12,7 @@ BREWS = [
   "mysql2",
   "node",
   "openssh",
+  "psequel",
   "reattach-to-user-namespace",
   "ruby-install",
   "sqlite",
