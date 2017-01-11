@@ -9,6 +9,7 @@ BREWS = [
   "heroku-toolbelt",
   "jsonpp",
   "mongodb",
+  "mosh",
   "mysql2",
   "node",
   "openssh",
