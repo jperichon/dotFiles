@@ -13,6 +13,7 @@ BREWS = [
   "mysql2",
   "node",
   "openssh",
+  "postgresql",
   "psequel",
   "reattach-to-user-namespace",
   "ruby-install",
