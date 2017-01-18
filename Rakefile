@@ -29,6 +29,7 @@ CASK_BREWS = [
   "adobe-acrobat",
   "adobe-photoshop-cc",
   "alfred",
+  "anvil",
   "appcleaner",
   "caffeine",
   "dropbox",

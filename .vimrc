@@ -31,7 +31,6 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-fugitive'
 Bundle 'danchoi/ruby_bashrockets.vim'
-Bundle 'wakatime/vim-wakatime'
 Bundle 'airblade/vim-gitgutter'
 
 " languages support
@@ -237,3 +236,4 @@ function LargeFile()
  " display message
  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction
+let g:yankring_clipboard_monitor=0

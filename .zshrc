@@ -17,11 +17,8 @@ alias make='colormake'
 alias top='htop'
 alias tail='tail'
 alias diff='colordiff'
-alias ls='ls --color=auto'
 alias clr='clear'
 alias cls='clear'
-alias lighttpd.local='lighttpd -f $HOME/.lighttpd.conf &'
-alias lighttpd.stop='killall lighttpd'
 alias mkdir='mkdir -p'
 alias v='vim'
 alias tomcat='catalina'
@@ -67,8 +64,8 @@ tmuxinator
 vi-mode
 )
 
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
+# export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
 export CLICOLOR_FORCE=1
 export ZSH_THEME="pure"
@@ -80,7 +77,7 @@ function fname() { find . -iname "*$@*"; }
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/heroku/bin:$PATH"
-chruby ruby-2.1.5
+chruby ruby-2.4.0
 export GOPATH=~/go
 export GOROOT=/usr/local/opt/go/libexec
 export GOBIN=$GOPATH/bin
