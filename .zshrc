@@ -13,7 +13,6 @@ alias ivm='vim'
 alias pw='pwd'
 alias svn='colorsvn'
 alias svnu='colorsvn update'
-alias make='colormake'
 alias top='htop'
 alias tail='tail'
 alias diff='colordiff'
@@ -84,3 +83,4 @@ export GOBIN=$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 export PATH=$PATH:$GOBIN
 export HIST_IGNORE_SPACE=1
+eval "$(thefuck --alias)"

@@ -35,6 +35,7 @@ Bundle 'airblade/vim-gitgutter'
 
 " languages support
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-rails.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'hail2u/vim-css3-syntax'
@@ -237,3 +238,13 @@ function LargeFile()
  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction
 let g:yankring_clipboard_monitor=0
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+autocmd BufWritePost *.go :GoBuild

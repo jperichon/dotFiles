@@ -8,11 +8,14 @@ BREWS = [
   "git",
   "heroku-toolbelt",
   "jsonpp",
+  "kubernetes-cli",
+  "libgit2",
   "mongodb",
   "mosh",
   "mysql2",
   "node",
   "openssh",
+  "pkg-config",
   "postgresql",
   "psequel",
   "reattach-to-user-namespace",
@@ -22,7 +25,7 @@ BREWS = [
   "vim",
   "vimpager",
   "wget",
-  "zsh"
+  "zsh",
 ]
 
 CASK_BREWS = [
@@ -44,6 +47,7 @@ CASK_BREWS = [
   "mplayerx",
   "onyx",
   "postico",
+  "robomongo",
   "sequel-pro",
   "sonos",
   "spectacle",
@@ -51,7 +55,9 @@ CASK_BREWS = [
   "textmate",
   "the-unarchiver",
   "tunnelblick",
-  "whatsapp"
+  "whatsapp",
+  "libpng",
+  "qt",
 ]
 
 GEMS = [
