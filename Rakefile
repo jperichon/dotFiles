@@ -105,6 +105,7 @@ task :dotfiles do
   sh "ln -s -F `pwd`/.gemrc ~/.gemrc"
   sh "ln -s -F `pwd`/.tmux.conf ~/.tmux.conf"
   sh "ln -s -F `pwd`/.gitconfig ~/.gitconfig"
+  sh "ln -s -F `pwd`/.gitignore_global ~/.gitignore_global"
 end
 
 task :me => [:homebrew, :ruby, :zsh, :vim, :tmux, :dotfiles]
