@@ -8,6 +8,7 @@ BREWS = [
   "git",
   "heroku-toolbelt",
   "jsonpp",
+  "kap",
   "kubernetes-cli",
   "libgit2",
   "mongodb",
