@@ -10,7 +10,7 @@
     pager = vimpager
     autocrlf = input
     safecrlf = true
-    excludesfile = /Users/jperichon/.gitignore
+    excludesfile = /Users/jperichon/.gitignore_global
 
 [color]
     branch = auto

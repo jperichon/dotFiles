@@ -1,3 +1,6 @@
+*~
+settings/local.py
+pip-log.txt
 *.DS_Store
 *.sw[nop]
 .bundle

@@ -8,11 +8,15 @@ BREWS = [
   "git",
   "heroku-toolbelt",
   "jsonpp",
+  "kap",
+  "kubernetes-cli",
+  "libgit2",
   "mongodb",
   "mosh",
   "mysql2",
   "node",
   "openssh",
+  "pkg-config",
   "postgresql",
   "psequel",
   "reattach-to-user-namespace",
@@ -22,7 +26,7 @@ BREWS = [
   "vim",
   "vimpager",
   "wget",
-  "zsh"
+  "zsh",
 ]
 
 CASK_BREWS = [
@@ -44,6 +48,7 @@ CASK_BREWS = [
   "mplayerx",
   "onyx",
   "postico",
+  "robomongo",
   "sequel-pro",
   "sonos",
   "spectacle",
@@ -51,7 +56,9 @@ CASK_BREWS = [
   "textmate",
   "the-unarchiver",
   "tunnelblick",
-  "whatsapp"
+  "whatsapp",
+  "libpng",
+  "qt",
 ]
 
 GEMS = [
@@ -98,6 +105,7 @@ task :dotfiles do
   sh "ln -s -F `pwd`/.gemrc ~/.gemrc"
   sh "ln -s -F `pwd`/.tmux.conf ~/.tmux.conf"
   sh "ln -s -F `pwd`/.gitconfig ~/.gitconfig"
+  sh "ln -s -F `pwd`/.gitignore_global ~/.gitignore_global"
 end
 
 task :me => [:homebrew, :ruby, :zsh, :vim, :tmux, :dotfiles]
