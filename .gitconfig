@@ -3,7 +3,7 @@
     email = jperichon@gmail.com
 
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 
 [core]
     editor = vim
