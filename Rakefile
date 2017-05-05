@@ -1,10 +1,5 @@
 require 'rake'
 
-GEMS = [
-  "bundler",
-  "foreman"
-]
-
 task :vim do
   sh "mkdir -p ~/.vim"
   sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
@@ -24,7 +19,7 @@ end
 task :ruby do
   sh 'ruby-install ruby'
   sh 'exec $SHELL'
-  sh "gem install #{GEMS.join(' ')}"
+  sh "gem install bundler; bundle install --system"
 end
 
 task :homebrew do
