@@ -82,10 +82,9 @@ task :ruby do
 end
 
 task :homebrew do
+  sh '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
   sh 'brew tap homebrew/dupes'
-  sh 'brew tap caskroom/cask'
-  sh "brew install #{BREWS.join(' ')}"
-  sh "brew cask install #{CASK_BREWS.join(' ')}"
+  sh 'brew bundle install'
 end
 
 task :tmux do
