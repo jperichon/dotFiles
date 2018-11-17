@@ -67,5 +67,5 @@
 
 [branch]
     autosetupmerge = always
-[commit]
-	gpgsign = true
+; [commit]
+; 	gpgsign = true
