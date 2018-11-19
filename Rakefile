@@ -65,4 +65,10 @@ task :dotfiles do
   link_dotfile('.gitignore_global')
 end
 
-task :install => [:homebrew, :ruby, :zsh, :vim, :tmux, :dotfiles]
+task :teleport do
+  sh "curl https://teleport-static.checkrhq.net/teleport_darwin.tar.gz | tar xvx"
+  sh "sudo teleport-ent/install"
+  sh "rm -rf teleport-ent"
+end
+
+task :install => [:homebrew, :ruby, :zsh, :vim, :tmux, :dotfiles, :teleport]
