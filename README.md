@@ -5,3 +5,4 @@ source <(curl -s
 
 Things I havent't automated:
 - disable caps lock
+- disable spotlight shortcuts
