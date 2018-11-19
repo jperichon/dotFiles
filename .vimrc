@@ -3,53 +3,45 @@ set nocompatible " Use Vim defaults
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/\
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'ervandew/supertab'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/EasyGrep'
-Bundle 'nelstrom/vim-qargs'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'tomasr/molokai'
-Bundle 'tpope/vim-endwise'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'tpope/vim-bundler'
-Bundle 'tmhedberg/matchit'
-Bundle 'tpope/vim-fugitive'
-Bundle 'danchoi/ruby_bashrockets.vim'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'VundleVim/vundle'
+Plugin 'ervandew/supertab'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/fzf.vim'
+Plugin 'nelstrom/vim-qargs'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-endwise'
+" Plugin 'Lokaltog/vim-easymotion'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tmhedberg/matchit'
+Plugin 'tpope/vim-fugitive'
+Plugin 'danchoi/ruby_bashrockets.vim'
+Plugin 'airblade/vim-gitgutter'
 
-" languages support
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'fatih/vim-go'
-Bundle 'tpope/vim-rails.git'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nono/jquery.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'ingydotnet/yaml-vim'
-Bundle 'ngmy/vim-rubocop'
+Plugin 'powerman/vim-plugin-AnsiEsc'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'gregsexton/MatchTag'
 
-Bundle 'gregsexton/MatchTag'
-Bundle 'bling/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
+" theme
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tomasr/molokai'
 " let g:airline_powerline_fonts = 1
+call vundle#end()
 
 filetype on
 filetype plugin on
@@ -140,8 +132,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-let g:ctrlp_map = '<leader>o'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+map <leader>o :Files<CR>
+" let g:ctrlp_map = '<leader>o'
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -210,6 +203,9 @@ augroup myfiletypes
     autocmd FileType ruby,eruby,yaml,css,html set ai sw=2 sts=2 et
 augroup END
 
+
+let b:ale_fixers = ['rubocop']
+
 set completeopt=menu,menuone
 
 set ttimeoutlen=10
@@ -246,5 +242,6 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let vimpager_disable_ansiesc = 1
 
 autocmd BufWritePost *.go :GoBuild

@@ -41,3 +41,5 @@ cask "slack"
 cask "spotify"
 cask "superhuman"
 cask "the-unarchiver"
+
+mas "Things", id: 904280696
