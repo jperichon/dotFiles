@@ -1,7 +1,7 @@
 require 'rake'
 
-def link_dotfile(filename)
-  sh "ln -s -F `pwd`/#{filename} ~/#{filename}"
+def link_dotfile(filename, destination_dir = "~/")
+  sh "ln -s -F `pwd`/#{filename} #{destination_dir}#{filename}"
 end
 
 task :vim do
@@ -39,6 +39,9 @@ task :osx do
   # Disable spotlight shortcuts
   sh "/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c" \
     "Set AppleSymbolicHotKeys:64:enabled false"
+
+  # Disable natural scrolling
+  sh "defaults write -g com.apple.swipescrolldirection -bool NO"
 end
 
 task :ruby do
@@ -60,9 +63,11 @@ task :tmux do
 end
 
 task :dotfiles do
+  sh `mkdir -p ~/config`
   link_dotfile('.dircolors')
   link_dotfile('.gitconfig')
   link_dotfile('.gitignore_global')
+  link_dotfile('alacritty.yml', "~/config/")
 end
 
 task :teleport do
