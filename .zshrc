@@ -1,5 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 
+ZSH_TMUX_AUTOSTART=true
+
 # git aliases
 alias gs='git status '
 alias ga='git add '
@@ -53,6 +55,7 @@ rails
 rake
 rake-fast
 ssh
+tmux
 vi-mode
 )
 
@@ -72,3 +75,4 @@ export GOBIN=$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 export PATH=$PATH:$GOBIN
 export HIST_IGNORE_SPACE=1
+export PATH="/usr/local/opt/node@8/bin:$PATH"

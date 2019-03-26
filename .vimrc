@@ -55,7 +55,7 @@ set splitright
 set nocursorcolumn
 set nocursorline
 set lazyredraw
-" set re=1 "use the old regex engine to improve performance with rb files
+set re=1 "use the old regex engine to improve performance with rb files
 set ttyfast
 " set ttimeout
 " set ttimeoutlen=20
