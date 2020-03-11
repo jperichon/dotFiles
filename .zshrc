@@ -40,7 +40,7 @@ bower
 brew
 bundler
 chruby
-colored-man
+colored-man-pages
 cp
 docker
 docker-compose
@@ -49,12 +49,11 @@ git
 git-flow
 heroku
 history-substring-search
-hub
 osx
 rails
 rake
 rake-fast
-ssh
+ssh-agent
 tmux
 vi-mode
 )
@@ -75,4 +74,5 @@ export GOBIN=$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 export PATH=$PATH:$GOBIN
 export HIST_IGNORE_SPACE=1
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+export TSH_USER=jonathan@checkr.com
+export PATH="/usr/local/opt/node@10/bin:$PATH"
