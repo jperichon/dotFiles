@@ -1,6 +1,7 @@
 [user]
     name = Jonathan Perichon
     email = jperichon@gmail.com
+	signingkey = 440CBDC1EED744A8
 
 [credential]
 	helper = osxkeychain
@@ -67,5 +68,5 @@
 
 [branch]
     autosetupmerge = always
-; [commit]
-; 	gpgsign = true
+[commit]
+	gpgsign = true
