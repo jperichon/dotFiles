@@ -16,7 +16,8 @@ end
 
 task :zsh do
   sh "curl -L http://install.ohmyz.sh | sh"
-  sh "chsh -s /usr/local/bin/zsh"
+  sh "sudo sh -c 'echo $(which zsh) >> /etc/shells'"
+  sh "chsh -s $(which zsh)"
   link_dotfile('.zshrc')
 end
 
@@ -36,9 +37,9 @@ task :osx do
   # Enable dark mode
   sh "sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true"
 
-  # Disable spotlight shortcuts
-  sh "/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c" \
-    "Set AppleSymbolicHotKeys:64:enabled false"
+  # # Disable spotlight shortcuts
+  # sh "/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c" \
+  #   "Set AppleSymbolicHotKeys:64:enabled false"
 
   # Disable natural scrolling
   sh "defaults write -g com.apple.swipescrolldirection -bool NO"
