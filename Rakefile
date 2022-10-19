@@ -53,7 +53,9 @@ task :ruby do
 end
 
 task :homebrew do
-  sh 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+  sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+  sh 'echo \'eval "$(/opt/homebrew/bin/brew shellenv)"\' >> ~/.zprofile'
+  sh 'eval "$(/opt/homebrew/bin/brew shellenv)"'
   sh 'brew bundle install'
 end
 
@@ -64,7 +66,7 @@ task :tmux do
 end
 
 task :dotfiles do
-  sh `mkdir -p ~/config`
+  sh 'mkdir -p ~/config'
   link_dotfile('.dircolors')
   link_dotfile('.gitconfig')
   link_dotfile('.gitignore_global')
