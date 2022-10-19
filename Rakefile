@@ -67,10 +67,12 @@ end
 
 task :dotfiles do
   sh 'mkdir -p ~/config'
+  sh 'mkdir -p ~/.ssh'
   link_dotfile('.dircolors')
   link_dotfile('.gitconfig')
   link_dotfile('.gitignore_global')
   link_dotfile('alacritty.yml', "~/config/")
+  link_dotfile('.ssh/config')
 end
 
 task :teleport do
