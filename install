@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e # exit on first error
+xcode-select --install
 git clone https://github.com/jperichon/dotFiles.git
 cd dotFiles
 rake install
