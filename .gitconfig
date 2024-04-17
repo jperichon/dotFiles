@@ -1,72 +1,19 @@
 [user]
-    name = Jonathan Perichon
-    email = jperichon@gmail.com
+	name = Jonathan Perichon
+	email = jperichon@gmail.com
 	signingkey = 440CBDC1EED744A8
 
 [credential]
 	helper = osxkeychain
-
-[core]
-    editor = vim
-    pager = vimpager
-    autocrlf = input
-    safecrlf = true
-    excludesfile = /Users/jperichon/.gitignore_global
-
-[color]
-    branch = auto
-    diff = auto
-    status = auto
-	ui = true
-
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-
-[color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
 
 [diff]
-    tool = vimdiff
-
-[merge]
-    tool = vimdiff
-
-[difftool]
-    prompt = false
-
+	tool = vimdiff
 [alias]
-    co = checkout
-    ci = commit
-    st = status -sb
-    hist = log --pretty=format:'[%h] %an %cr: %s'
-    summary = log --pretty=format:'[%h] %an %ar: %s' --stat
-    changelog = log --pretty=format:' * %s'
-    standup = log --since yesterday --author jperichon
-    purr = pull --rebase
-    ready = rebase -i @{u}
     d = difftool
-    delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [push]
-    default = simple
-
-[pull]
-	default = simple
-
-[filter "media"]
-    clean = git-media-clean %f
-    smudge = git-media-smudge %f
-
-[branch]
-    autosetupmerge = always
-[commit]
-	gpgsign = true
+	autoSetupRemote = true

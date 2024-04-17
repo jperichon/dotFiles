@@ -15,7 +15,7 @@ alias ivm='vim'
 alias pw='pwd'
 alias top='htop'
 alias tail='tail'
-alias diff='colordiff'
+#alias diff='colordiff'
 alias clr='clear'
 alias cls='clear'
 alias mkdir='mkdir -p'
@@ -74,5 +74,10 @@ export GOBIN=$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 export PATH=$PATH:$GOBIN
 export HIST_IGNORE_SPACE=1
-export TSH_USER=jonathan@checkr.com
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

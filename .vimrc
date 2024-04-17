@@ -1,13 +1,11 @@
-syn on " Syntax on
-set nocompatible " Use Vim defaults
-
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 call vundle#begin()
 
-Plugin 'VundleVim/vundle'
+Plugin 'Vundle/Vundle.vim'
 Plugin 'ervandew/supertab'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/fzf.vim'
@@ -30,21 +28,18 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'danchoi/ruby_bashrockets.vim'
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'powerman/vim-plugin-AnsiEsc'
+"Plugin 'airblade/vim-gitgutter'
+" Plugin 'powerman/vim-plugin-AnsiEsc'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'gregsexton/MatchTag'
 
 " theme
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tomasr/molokai'
-" let g:airline_powerline_fonts = 1
+" Plugin 'bling/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'tomasr/molokai'
+let g:airline_powerline_fonts = 1
 call vundle#end()
 
-filetype on
-filetype plugin on
 filetype plugin indent on
 
 set t_Co=256
@@ -100,7 +95,7 @@ set undofile
 
 " theme
 set background=dark
-colorscheme molokai
+" colorscheme molokai
 let g:rehash256 = 1
 hi statusLine ctermfg=3 ctermbg=58
 let g:airline_theme = 'wombat'
