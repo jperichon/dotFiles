@@ -1,6 +1,3 @@
-tap 'homebrew/cask'
-
-# highest priority
 cask "brave-browser"
 cask "superhuman"
 cask "1password"
