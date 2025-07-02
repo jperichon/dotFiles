@@ -23,6 +23,8 @@ alias v='vim'
 alias g='git'
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed'
 
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 export PAGER="vimpager"
 export EDITOR="vim"
 export SVN_EDITOR="vim"
@@ -56,6 +58,7 @@ rake-fast
 ssh-agent
 tmux
 vi-mode
+zsh-nvm
 )
 
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/bin:/usr/local/sbin:$HOME/Projects/scripts:/usr/local/share/npm/bin
@@ -75,9 +78,13 @@ export GO15VENDOREXPERIMENT=1
 export PATH=$PATH:$GOBIN
 export HIST_IGNORE_SPACE=1
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export TELEPORT_PROXY="heimdallr.checkrhq.net"
+export TELEPORT_AUTH="gitlab"
 
 source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-
+source ~/.checkrrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# pt/homebrew/opt/nvm/nvm.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
